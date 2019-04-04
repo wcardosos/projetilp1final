@@ -1,0 +1,33 @@
+#BlueJ class context
+comment0.target=Jogo
+comment1.params=
+comment1.target=Jogo()
+comment10.params=
+comment10.target=boolean\ getVez()
+comment11.params=
+comment11.target=void\ verificaFimDeJogo()
+comment11.text=public\ void\ verificaPecaEhDama(int\ posicaoX,\ int\ posicaoY)\ {\r\n\ \ \ \ \ \ \ \ Dama\ pecaDama;\r\n\ \ \ \ \ \ \ \ Casa\ casa\ \=\ tabuleiro.getCasa(posicaoX,\ posicaoY);\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ if(casa.getPeca().getDama())\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ pecaDama\ \=\ new\ Dama(casa,\ casa.getPeca().getTipo());\r\n\ \ \ \ \ \ \ \ \ \ \ \ casa.removerPeca();\r\n\ \ \ \ \ \ \ \ \ \ \ \ casa.colocarPeca(pecaDama);\r\n\ \ \ \ \ \ \ \ }\r\n}
+comment12.params=
+comment12.target=boolean\ getFimDeJogo()
+comment13.params=
+comment13.target=Tabuleiro\ getTabuleiro()
+comment13.text=\r\n\ @return\ o\ Tabuleiro\ em\ jogo.\r\n
+comment2.params=
+comment2.target=void\ criarPecas()
+comment2.text=\r\n\ Posiciona\ pe\uFFFDas\ no\ tabuleiro.\r\n\ Utilizado\ na\ inicializa\uFFFDao\ do\ jogo.\r\n
+comment3.params=origemX\ origemY\ destinoX\ destinoY
+comment3.target=void\ moverPeca(int,\ int,\ int,\ int)
+comment3.text=\r\n\ Comanda\ uma\ Pe\uFFFDa\ na\ posicao\ (origemX,\ origemY)\ fazer\ um\ movimento\ \r\n\ para\ (destinoX,\ destinoY).\r\n\ \r\n\ @param\ origemX\ linha\ da\ Casa\ de\ origem.\r\n\ @param\ origemY\ coluna\ da\ Casa\ de\ origem.\r\n\ @param\ destinoX\ linha\ da\ Casa\ de\ destino.\r\n\ @param\ destinoY\ coluna\ da\ Casa\ de\ destino.\r\n
+comment4.params=casaEliminacao\ tipoPecaOrigem
+comment4.target=void\ eliminarPeca(Casa,\ int)
+comment5.params=controle
+comment5.target=void\ setControleEliminacaoSucessiva(boolean)
+comment6.params=
+comment6.target=boolean\ getControleEliminacaoSucessiva()
+comment7.params=pos
+comment7.target=boolean\ verificaLimite(int)
+comment8.params=
+comment8.target=void\ jogadorIniciante()
+comment9.params=
+comment9.target=void\ setVez()
+numComments=14
