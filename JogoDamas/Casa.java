@@ -18,6 +18,14 @@ public class Casa {
         this.y = y;
         this.peca = null;
     }
+
+    /**
+     * @param casaVerificacao Uma casa para a verificação
+     * @return se uma casa dada como parâmetro tem a mesma posição.
+     */
+    public boolean verificacaoMesmaPosicao(Casa casaVerificacao) {
+        return (x == casaVerificacao.getX() && y == casaVerificacao.getY());
+    }
     
     /**
      * @return a posição X da casa
@@ -61,11 +69,4 @@ public class Casa {
         return peca != null;
     }
     
-    /**
-     * @param casaVerificacao Uma casa para a verificação
-     * @return se uma casa dada como parâmetro tem a mesma posição.
-     */
-    public boolean verificacaoMesmaPosicao(Casa casaVerificacao) {
-        return (x == casaVerificacao.getX() && y == casaVerificacao.getY());
-    }
 }

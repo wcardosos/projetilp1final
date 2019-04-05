@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=JanelaPrincipal
-comment0.text=\r\n\ Tela\ do\ jogo.\r\n\ Respons\u00E1vel\ por\ reagir\ aos\ cliques\ feitos\ pelo\ jogador.\r\n\ \r\n\ @author\ Alan\ Moraes\ &lt;alan@ci.ufpb.br&gt;\r\n\ @author\ Leonardo\ Villeth\ &lt;lvilleth@cc.ci.ufpb.br&gt;\r\n\ @author\ Wagner\ Cardoso\ &lt;wagnersilva@cc.ci.ufpb.br&gt;\r\n
+comment0.text=\r\n\ Tela\ do\ jogo.\r\n\ Respons\uFFFDvel\ por\ reagir\ aos\ cliques\ feitos\ pelo\ jogador.\r\n\ \r\n\ @author\ Alan\ Moraes\ &lt;alan@ci.ufpb.br&gt;\r\n\ @author\ Leonardo\ Villeth\ &lt;lvilleth@cc.ci.ufpb.br&gt;\r\n
 comment1.params=casaClicada
 comment1.target=void\ reagir(CasaGUI)
 comment1.text=\r\n\ Responde\ aos\ cliques\ realizados\ no\ tabuleiro.\r\n\ \r\n\ @param\ casaClicada\ Casa\ que\ o\ jogador\ clicou.\r\n

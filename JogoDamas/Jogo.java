@@ -1,6 +1,6 @@
  
 /**
- * Armazena o tabuleiro e responsavel por posicionar as pecas.
+ * Armazena o tabuleiro e responsável por posicionar as pecas.
  * 
  * @author Alan Moraes &lt;alan@ci.ufpb.br&gt;
  * @author Leonardo Villeth &lt;lvilleth@cc.ci.ufpb.br&gt;
@@ -118,6 +118,24 @@ public class Jogo {
             
         tabuleiro.getCasa(casaEliminacao.getX(), casaEliminacao.getY()).removerPeca();
     }
+
+    /**
+     * Define o jogador que iniciará a partida.
+     */
+
+    public void jogadorIniciante() {
+        Random r = new Random();
+        turno = r.nextBoolean();
+    }
+
+    /**
+     * Verifica se o jogo acabou.
+     */
+    public void verificaFimDeJogo() {
+        if(pecasBrancas == 0 || pecasVermelhas == 0) {
+             fimDeJogo = true;
+        }
+    }
     
     /**
      * @param controle Passa para o método se uma peça possui eliminações sucessivas a serem feitas.
@@ -134,14 +152,6 @@ public class Jogo {
         return controleEliminacaoSucessiva;
     }
     
-    /**
-     * Define o jogador que iniciará a partida.
-     */
-
-    public void jogadorIniciante() {
-        Random r = new Random();
-        vez = r.nextBoolean();
-    }
     
     /**
      * Muda o turno.
@@ -157,26 +167,7 @@ public class Jogo {
         return turno;
     }
     
-    /*public void verificaPecaEhDama(int posicaoX, int posicaoY) {
-        Dama pecaDama;
-        Casa casa = tabuleiro.getCasa(posicaoX, posicaoY);
-        
-        if(casa.getPeca().getDama()) {
-            pecaDama = new Dama(casa, casa.getPeca().getTipo());
-            casa.removerPeca();
-            casa.colocarPeca(pecaDama);
-        }
-    }*/
     
-    
-    /**
-     * Verifica se o jogo acabou.
-     */
-    public void verificaFimDeJogo() {
-        if(pecasBrancas == 0 || pecasVermelhas == 0) {
-             fimDeJogo = true;
-        }
-    }
     
     /**
      * @return fimDeJogo para verificações externas.

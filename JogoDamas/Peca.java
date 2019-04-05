@@ -45,64 +45,6 @@ public class Peca {
     }
 
     /**
-     * Valor    Tipo
-     *   0   Branca (Pedra)
-     *   1   Branca (Dama)
-     *   2   Vermelha (Pedra)
-     *   3   Vermelha (Dama)
-     * @return o tipo da peca.
-     */
-    public int getTipo() {
-        return tipo;
-    }
-    
-    /**
-     * Define o valor para o atributo dama.
-     * Se o valor de dama for falso, vira verdadeiro e muda seu tipo;
-     * Se for verdadeiro, vira false e muda seu tipo;
-     * Após a verificação de dama, muda-se a direção da peça.
-     */
-    
-    public void setDama() {
-        if(!dama) {
-            dama = true;
-            tipo++;
-        }
-        else {
-            dama = false;
-            tipo--;
-        }
-        
-        direcao = -direcao;
-        
-    }
-    
-    /**
-     * @return o valor de dama.
-     */
-    public boolean getDama() {
-        return dama;
-    }
-    
-    /**
-     * @return true se há peças para eliminação, false se o contrário.
-     */
-    public boolean existeEliminacao() {
-        if(posicoesPossiveis.size() > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    /**
-     * Adiciona uma casa onde a peça pode ir após uma eliminação.
-     */
-    public void adicionaPosicao(Casa casa) {
-        posicoesPossiveis.add(casa);
-    }
-    
-    /**
      * @param destino Casa para onde se quer fazer o movimento.
      * @return se uma movimentação simples pode ser feita.
      */
@@ -118,6 +60,13 @@ public class Peca {
         
         return podeMover;
     }
+
+    /**
+     * Adiciona uma casa onde a peça pode ir após uma eliminação.
+     */
+    public void adicionaPosicao(Casa casa) {
+        posicoesPossiveis.add(casa);
+    }
     
     /**
      * Limpa o ArrayList que contém as posições que a peça pode se mover após uma eliminação.
@@ -127,7 +76,7 @@ public class Peca {
             posicoesPossiveis.clear();
         }
     }
-    
+
     /**
      * @param casaPecaAdversaria Casa em uma das adjacências da peça.
      * @param casaEliminacao Casa a qual uma peça pode ir após uma possível eliminação.
@@ -139,8 +88,7 @@ public class Peca {
               if(casaPecaAdversaria.getPeca() != null && (casaPecaAdversaria.getPeca().getTipo() == 2 || casaPecaAdversaria.getPeca().getTipo() == 3)) {
                   if(casaEliminacao.getPeca() == null) {
                       adicionaPosicao(casaEliminacao);
-                  }
-                   
+                  } 
               }
         } else {
              if(casaPecaAdversaria.getPeca() != null && (casaPecaAdversaria.getPeca().getTipo() == 0 || casaPecaAdversaria.getPeca().getTipo() == 1)) {
@@ -186,26 +134,37 @@ public class Peca {
             analisaEliminacoes(casaPecaAdversaria, casaLivre);
         }
     }
+
+    /**
+     * @return true se há peças para eliminação, false se o contrário.
+     */
+    public boolean existeEliminacao() {
+        if(posicoesPossiveis.size() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     /**
      * @param destino Casa para onde a peça irá após a eliminação
      * @return peça adversária que deve ser eliminada.
      */
     public Casa casaParaEliminar(Casa destino) {
-        int posicaoXEliminacao = -1, posicaoYEliminacao = -1;
+        int posicaoXEliminacao = casa.getX(), posicaoYEliminacao = casa.getY();
         Casa casaEliminacao;
         
         if(destino.getX() > casa.getX()) {
-            posicaoXEliminacao = casa.getX() + 1;
+            posicaoXEliminacao += 1;
         }
         else if(destino.getX() < casa.getX()) {
-            posicaoXEliminacao = casa.getX() - 1;
+            posicaoXEliminacao -= 1;
         }
         
         if(destino.getY() > casa.getY()) {
-            posicaoYEliminacao = casa.getY() + 1;
+            posicaoYEliminacao += 1;
         } else if(destino.getY() < casa.getY()) {
-            posicaoYEliminacao = casa.getY() - 1;
+            posicaoYEliminacao -= 1;
         }
         
         return casaEliminacao = new Casa(posicaoXEliminacao, posicaoYEliminacao);
@@ -221,28 +180,7 @@ public class Peca {
         verificaEliminacao(tabuleiro);
         setEliminacaoSucessiva();
     }
-    
-    /**
-     * Define o valor de eliminacaoSucessiva.
-     */
-    public void setEliminacaoSucessiva() {
-        eliminacaoSucessiva = existeEliminacao();
-    }
-    
-    /**
-     * @return se a peça pode fazer eliminações sucessivas.
-     */
-    public boolean getEliminacaoSucessiva() {
-        return eliminacaoSucessiva;
-    }
-    
-    /**
-     * @return a direcao da peça.
-     */
-    public int getDirecao() {
-        return direcao;
-    }
-    
+
     /**
      * @return true se uma peça dada como parâmetro está no ArrayList de posições possíveis após a eliminação.
      */
@@ -281,5 +219,67 @@ public class Peca {
         } else {
             return true;
         }
+    }
+
+    /**
+     * Valor    Tipo
+     *   0   Branca (Pedra)
+     *   1   Branca (Dama)
+     *   2   Vermelha (Pedra)
+     *   3   Vermelha (Dama)
+     * @return o tipo da peca.
+     */
+    public int getTipo() {
+        return tipo;
+    }
+    
+    /**
+     * Define o valor para o atributo dama.
+     * Se o valor de dama for falso, vira verdadeiro e muda seu tipo;
+     * Se for verdadeiro, vira false e muda seu tipo;
+     * Após a verificação de dama, muda-se a direção da peça.
+     */
+    
+    public void setDama() {
+        if(!dama) {
+            dama = true;
+            tipo++;
+        }
+        else {
+            dama = false;
+            tipo--;
+        }
+        
+        direcao = -direcao;
+        
+    }
+    
+    /**
+     * @return o valor de dama.
+     */
+    public boolean getDama() {
+        return dama;
+    }
+    
+    
+    /**
+     * Define o valor de eliminacaoSucessiva.
+     */
+    public void setEliminacaoSucessiva() {
+        eliminacaoSucessiva = existeEliminacao();
+    }
+    
+    /**
+     * @return se a peça pode fazer eliminações sucessivas.
+     */
+    public boolean getEliminacaoSucessiva() {
+        return eliminacaoSucessiva;
+    }
+    
+    /**
+     * @return a direcao da peça.
+     */
+    public int getDirecao() {
+        return direcao;
     }
 }

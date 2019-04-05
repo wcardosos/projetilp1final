@@ -6,11 +6,10 @@ import javax.swing.JOptionPane;
 
 /**
  * Tela do jogo.
- * Responsável por reagir aos cliques feitos pelo jogador.
+ * Respons�vel por reagir aos cliques feitos pelo jogador.
  * 
  * @author Alan Moraes &lt;alan@ci.ufpb.br&gt;
  * @author Leonardo Villeth &lt;lvilleth@cc.ci.ufpb.br&gt;
- * @author Wagner Cardoso &lt;wagnersilva@cc.ci.ufpb.br&gt;
  */
 public class JanelaPrincipal extends JFrame {
 
@@ -30,10 +29,10 @@ public class JanelaPrincipal extends JFrame {
             if(jogo.getControleEliminacaoSucessiva() && (casa.getPeca() == null || !casa.getPeca().getEliminacaoSucessiva())) {
                 JOptionPane.showMessageDialog(this, "Continue eliminando!");
             }
-            else if(jogo.getVez() && casa.getPeca() != null && (casa.getPeca().getTipo() == 2 || casa.getPeca().getTipo() == 3)) {
+            else if(jogo.getTurno() && casa.getPeca() != null && (casa.getPeca().getTipo() == 2 || casa.getPeca().getTipo() == 3)) {
                 JOptionPane.showMessageDialog(this, "Vez das peças brancas! ");
             }
-            else if(!jogo.getVez() && casa.getPeca() != null && (casa.getPeca().getTipo() == 0 || casa.getPeca().getTipo() == 1)) {
+            else if(!jogo.getTurno() && casa.getPeca() != null && (casa.getPeca().getTipo() == 0 || casa.getPeca().getTipo() == 1)) {
                 JOptionPane.showMessageDialog(this, "Vez das peças vermelhas! ");
             }
             else if (casaClicada.possuiPeca()) {
@@ -42,7 +41,7 @@ public class JanelaPrincipal extends JFrame {
                 primeiroClique = false;
             }
             else {
-                // clicou em uma posi�?o inv�lida, ent?o n?o faz nada.
+                // clicou em uma posição inválida, então não faz nada.
                 JOptionPane.showMessageDialog(this, "Clique em uma peça.");
             }
         }
@@ -275,7 +274,7 @@ public class JanelaPrincipal extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     public void iniciante() {
-        if(jogo.getVez()) {
+        if(jogo.getTurno()) {
             JOptionPane.showMessageDialog(this, "Branco inicia. ");
         } else {
             JOptionPane.showMessageDialog(this, "Vermelho inicia. ");
